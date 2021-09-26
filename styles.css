@@ -1,1 +1,15 @@
-styles.css
+:root{
+    --primary-color: #FCA5A5;
+}
+
+body{
+    margin-top: 0%;
+}
+
+.container{
+    background-color: var(--primary-color);
+    max-width: 40%;
+    margin: auto;
+    text-align: center;
+    max-height: 90%;
+}
