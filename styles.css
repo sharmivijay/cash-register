@@ -2,14 +2,54 @@
     --primary-color: #FCA5A5;
 }
 
-body{
-    margin-top: 0%;
+
+body{ 
+    display: grid;  
+    min-height: 100%;
 }
 
 .container{
     background-color: var(--primary-color);
-    max-width: 40%;
-    margin: auto;
+    max-width: 30%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left : auto;
+    margin-right: auto;
     text-align: center;
-    max-height: 90%;
+    min-height: auto;
+}
+
+#input-bill{
+    width: 90%;
+    padding: 1%;
+    margin: 1%;
+}
+
+#input-cash{
+    width: 90%;
+    padding: 1%;
+    margin: 1%;
+}
+
+#btn-check{
+    width: 30%;
+    padding: 1%;
+    margin: 1%; 
+    border: 1px solid var(--primary-color);
+}
+
+.output-table{
+    width: 90%;
+    padding: 3%;
+    margin: 2% auto;
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 3px solid white;
+    width: 10%;
+}
+
+.error-msg{
+    color: red;
 }

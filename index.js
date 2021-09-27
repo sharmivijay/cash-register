@@ -2,22 +2,24 @@ var billAmount = document.querySelector("#input-bill");
 var cashAmount = document.querySelector("#input-cash");
 var btnCheck = document.querySelector("#btn-check");
 var errorMessage = document.querySelector(".error-msg");
-const noOfNotes =  document.querySelector(".no-of-notes");
+var noOfNotes =  document.querySelectorAll(".no-of-notes");
 const returnNote = [2000,500,100,20,10,5,1];
 
 
 btnCheck.addEventListener("click", validateBillAmount);
 
-
 function validateBillAmount() {
     hideErrorMessage();
-    if(billAmount.value >= 0){
-        console.log("cashamount value: ",cashAmount.value);
-        if(parseInt(cashAmount.value) > parseInt(billAmount.value)){
+    if(billAmount.value > 0){
+        if(parseInt(cashAmount.value) >= parseInt(billAmount.value)){
             var balance = cashAmount.value - billAmount.value;
-            calculateChange(parseInt(balance));
+            if(balance === 0){
+                showErrorMessage("No Balance");
+            }{
+                calculateChange(balance);
+            }
+            
         }else{
-            console.log("here");
             showErrorMessage("Do you want to wash plates?");
         }
 
@@ -42,12 +44,9 @@ function validateCashAmount() {
 
 function calculateChange(balance) {
     for (let i = 0; i < returnNote.length; i++) {
-        // var note = balance/returnNote[i];
-        var note =0;
-        note = Math.floor(balance /  returnNote[i]);
-        console.log(note);
-        balance = balance - ( returnNote[i] * note);
-        console.log(balance);
-        noOfNotes[i].innerText = note;
+        var note = Math.floor(balance/returnNote[i]);
+        //balance = balance - ( returnNote[i] * note);
+        balance = balance % returnNote[i] ;
+        noOfNotes[i].innerText =  note;
         }
 }
